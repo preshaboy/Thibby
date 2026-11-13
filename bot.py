@@ -56,10 +56,10 @@ async def play_meditation():
         print(f"Failed to join voice channel: {e}")
         return
 
-    # 3. Stream all Internet Archive tracks back-to-back, repeating the list 2 times total
+    # 3. Stream all Internet Archive tracks back-to-back, repeating the list 1x total
     try: 
         for loop_count in range(2):
-            print(f"Starting playlist cycle {loop_count + 1} of 2...")
+            print(f"Starting playlist cycle {loop_count + 1} of 1...")
             
             for track_index in range(len(PLAYLIST)):
                 # If the bot is manually kicked or stopped early, kill the loop instantly
@@ -132,7 +132,7 @@ async def meditation_scheduler():
         reminder_message = None # Store reference globally or inside your scheduler
         
         # 📢 30-Minute Early Reminder Check (Fires at 08:30, 16:30, 00:30 UTC)
-        if now in ["17:30", "01:30"]:
+        if now in ["01:30"]:
             if last_warning_minute != now:
                 last_warning_minute = now
                 if text_channel:
@@ -144,7 +144,7 @@ Our session lasts about an hour. Do not worry if you missed it, my disciple. Jus
                         active_reminders.append(msg)
 
         # 📢 15-Minute Early Reminder Check
-        if now in ["17:45", "01:45"]:
+        if now in ["01:45"]:
             if last_15min_warning_minute != now:
                 last_15min_warning_minute = now
                 if text_channel:
@@ -153,7 +153,7 @@ Our session lasts about an hour. Do not worry if you missed it, my disciple. Jus
 
         
         # 🧘‍♂️ Session Commencement Check (Fires at 09:00, 17:00, 01:00 UTC)
-        if now in ["18:00", "02:00"]:
+        if now in ["02:00"]:
             if last_triggered_minute != now:
                 last_triggered_minute = now
                 
@@ -168,11 +168,11 @@ Our session lasts about an hour. Do not worry if you missed it, my disciple. Jus
                 await play_meditation()
                 
         # Reset memory arrays once time coordinates shift
-        if now not in ["18:00", "02:00"]:
+        if now not in ["02:00"]:
             last_triggered_minute = ""
-        if now not in ["17:30", "01:30"]:
+        if now not in ["01:30"]:
             last_warning_minute = ""
-        if now not in ["17:45", "01:45"]:
+        if now not in ["01:45"]:
             last_15min_warning_minute = ""
             
         await asyncio.sleep(15)
