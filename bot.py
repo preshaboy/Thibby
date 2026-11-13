@@ -22,7 +22,7 @@ PLAYLIST = [
     "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 1.mp3",
     "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 2.mp3",
     "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 3.mp3",
-    "httphttps://ia903108.us.archive.org/20/items/meditation-4/MEDITATION 4.mp3,
+    "httphttps://ia903108.us.archive.org/20/items/meditation-4/MEDITATION 4.mp3",
 ]
 
 # Track playlist position
