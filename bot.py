@@ -3,7 +3,7 @@ from nextcord.ext import commands
 import asyncio
 import datetime
 import os
-import randomchicken
+import random
 
 # --- MOBILE SECURE CONFIGURATION ---
 # We use os.environ to keep your token hidden safely in Railway settings!
