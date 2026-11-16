@@ -17,10 +17,10 @@ ROLE_TO_PING_ID = 1563428437513740418
 # YouTube links
 PLAYLIST = [
     "https://ia601806.us.archive.org/35/items/meditation-0_202610/MEDITATION 0.mp3",
-    "https://ia601600.us.archive.org/14/items/meditation-7/Meditation 7.mp3",
-    "https://ia601600.us.archive.org/14/items/meditation-7/Meditation 8.mp3",
     "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 1.mp3",
     "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 2.mp3",
+    "https://ia601600.us.archive.org/14/items/meditation-7/Meditation 7.mp3",
+    "https://ia601600.us.archive.org/14/items/meditation-7/Meditation 8.mp3",
     "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 3.mp3",
     "https://ia600407.us.archive.org/9/items/meditation-9/Meditation 9.mp3",
 ]
@@ -132,7 +132,7 @@ async def meditation_scheduler():
         reminder_message = None # Store reference globally or inside your scheduler
         
         # 📢 30-Minute Early Reminder Check (Fires at 08:30, 16:30, 00:30 UTC)
-        if now in ["21:30", "01:30"]:
+        if now in ["01:30"]:
             if last_warning_minute != now:
                 last_warning_minute = now
                 if text_channel:
@@ -144,7 +144,7 @@ Our session lasts about an hour. Do not worry if you missed it, my disciple. Jus
                         active_reminders.append(msg)
 
         # 📢 15-Minute Early Reminder Check
-        if now in ["21:45", "01:45"]:
+        if now in ["01:45"]:
             if last_15min_warning_minute != now:
                 last_15min_warning_minute = now
                 if text_channel:
@@ -153,7 +153,7 @@ Our session lasts about an hour. Do not worry if you missed it, my disciple. Jus
 
         
         # 🧘‍♂️ Session Commencement Check (Fires at 09:00, 17:00, 01:00 UTC)
-        if now in ["22:00", "02:00"]:
+        if now in ["02:00"]:
             if last_triggered_minute != now:
                 last_triggered_minute = now
                 
@@ -168,11 +168,11 @@ Our session lasts about an hour. Do not worry if you missed it, my disciple. Jus
                 await play_meditation()
                 
         # Reset memory arrays once time coordinates shift
-        if now not in ["22:00", "02:00"]:
+        if now not in ["02:00"]:
             last_triggered_minute = ""
-        if now not in ["21:30", "01:30"]:
+        if now not in ["01:30"]:
             last_warning_minute = ""
-        if now not in ["21:45", "01:45"]:
+        if now not in ["01:45"]:
             last_15min_warning_minute = ""
             
         await asyncio.sleep(15)
