@@ -25,6 +25,16 @@ PLAYLIST = [
     "https://ia600407.us.archive.org/9/items/meditation-9/Meditation 9.mp3",
 ]
 
+SLEEP_PLAYLIST = [ 
+    "https://ia601806.us.archive.org/35/items/meditation-0_202610/MEDITATION 0.mp3",
+    "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 1.mp3",
+    "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 2.mp3",
+    "https://ia601600.us.archive.org/14/items/meditation-7/Meditation 7.mp3",
+    "https://ia601600.us.archive.org/14/items/meditation-7/Meditation 8.mp3",
+    "https://ia601800.us.archive.org/12/items/meditation-2_202610/MEDITATION 3.mp3",
+    "https://ia903108.us.archive.org/20/items/meditation-4/MEDITATION 4.mp3",
+]
+
 # Track playlist position
 current_track_index = 0
 
@@ -332,12 +342,12 @@ async def sleep(ctx, *, channel_name: str = None):
         for loop_count in range(32):
             print(f"Starting 8-hour playlist cycle {loop_count + 1} of 32...")
             
-            for track_index in range(len(PLAYLIST)):
+            for track_index in range(len(SLEEP_PLAYLIST)):
                 if not vc.is_connected():
                     print("Asé. 🪬 Our sleep journey ended early.")
                     return
                     
-                stream_url = PLAYLIST[track_index]
+                stream_url = SLEEP_PLAYLIST[track_index]
                 audio_source = nextcord.FFmpegPCMAudio(stream_url, **FFMPEG_OPTIONS)
                 vc.play(audio_source)
                 
