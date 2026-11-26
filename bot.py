@@ -150,7 +150,7 @@ async def meditation_scheduler():
                         await asyncio.sleep(1.5)
                         msg = await text_channel.send(f"""🔔 Reminder <@&1563428437513740418>: Our collective meditation starts in **30 Minutes**! Empty your mind.  
 
-Our session lasts about an hour. Do not worry if you missed it, my disciple. Just type "*!ase*". 🌌""")
+Our session lasts 30 mins. Do not worry if you missed it, my disciple. Just say "*!ase*". 🌌""")
                         active_reminders.append(msg)
 
         # 📢 15-Minute Early Reminder Check
