@@ -57,7 +57,7 @@ async def play_meditation():
         return
 
     # 1. Ping role
-    start_msg = await text_channel.send(f"Asé <@&1563428437513740418> 🌕. Daily meditation begins now. Join me in the voice channel...")
+    start_msg = await text_channel.send(f"Asé <@&1563428437513740418>. Daily meditation begins now. Join me in the voice channel...")
 
     # 2. Join voice channel
     try:
